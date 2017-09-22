@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h2>Register</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+     <div class="clearfix">
+        <button type="button" class="button button1  cancelbtn">Cancel</button>
+        <button type="submit" class="button button1 signupbtn">Sign Up</button>
+      </div>
+  </form>
+{% endblock %}
